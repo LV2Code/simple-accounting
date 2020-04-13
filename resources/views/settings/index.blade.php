@@ -6,9 +6,9 @@
 
     <div
         x-data="{ current_tab: window.location.hash.replace('#', '') || 'general' }"
-        class="container mx-auto max-w-3xl mt-8">
+        class="container mx-auto max-w-4xl mt-8">
 
-        <h1 class="text-2xl font-bold text-gray-700 px-6 md:px-0">Settings</h1>
+        {{-- <h1 class="text-2xl font-bold text-gray-700 px-6 md:px-0">Settings</h1> --}}
 
         <ul class="flex border-b border-gray-300 text-sm font-medium text-gray-600 mt-3 px-6 md:px-0">
             <li
