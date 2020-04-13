@@ -1,5 +1,6 @@
 <form
     method="POST"
+    action="{{ route('settings.update.general') }}"
     x-transition:enter-start="-translate-x-full"
     x-transition:enter-end="translate-x-0"
     x-transition:leave-start="translate-x-0"
@@ -44,54 +45,174 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-4 mt-6">
+
+                <div class="grid grid-cols-6 gap-6 mt-6">
+
+                    <div class="col-span-6">
+                        <label
+                            for="company_name"
+                            class="block text-sm font-medium leading-5 text-gray-700">Company name</label>
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                type="email"
+                                id="company_name"
+                                name="company_name"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('company_name')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}" />
+
+                                @error('company_name')
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                clip-rule="evenodd"
+                                                fill-rule="evenodd"
+                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                        </svg>
+                                    </div>
+                                @enderror
+                            </div>
+                            @error('company_name')
+                                <p class="mt-2 text-sm text-red-600">{{ $errors->first('company_name') }}</p>
+                            @enderror
+                        </div>
+
+                    <div class="col-span-6 sm:col-span-4">
                         <label
                             for="country"
                             class="block text-sm font-medium leading-5 text-gray-700">Country / Region</label>
                         <select
                             id="country"
-                            class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-200 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            name="country"
+                            class="block form-select w-full py-2 px-3 py-0 border border-gray-200 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>India</option>
                             <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
                         </select>
                     </div>
 
                     <div class="col-span-6">
                         <label
-                            for="street_address"
+                            for="street"
                             class="block text-sm font-medium leading-5 text-gray-700">Street address</label>
-                        <input
-                            id="street_address"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                id="street"
+                                id="street"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('company_name')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}">
+
+                            @error('street')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('street')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('street') }}</p>
+                        @enderror
                     </div>
 
                     <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                         <label
                             for="city"
                             class="block text-sm font-medium leading-5 text-gray-700">City</label>
-                        <input
-                            id="city"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                id="city"
+                                name="city"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('company_name')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}">
+
+                            @error('city')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('city')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('city') }}</p>
+                        @enderror
                     </div>
 
                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                         <label
                             for="state"
                             class="block text-sm font-medium leading-5 text-gray-700">State / Province</label>
-                        <input
-                            id="state"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                id="state"
+                                name="state"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('company_name')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}">
+
+                            @error('state')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('state')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('state') }}</p>
+                        @enderror
                     </div>
 
                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                         <label
-                            for="postal_code"
+                            for="zip_code"
                             class="block text-sm font-medium leading-5 text-gray-700">ZIP / Postal</label>
-                        <input
-                            id="postal_code"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                id="zip_code"
+                                name="zip_code"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('zip_code')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}">
+
+                            @error('zip_code')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('state')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('zip_code') }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -119,6 +240,7 @@
                             class="block text-sm font-medium leading-5 text-gray-700">First name</label>
                         <input
                             id="first_name"
+                            name="first_name"
                             class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     </div>
                     <div class="col-span-6 sm:col-span-3">
@@ -127,16 +249,18 @@
                             class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
                         <input
                             id="last_name"
+                            name="last_name"
                             class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     </div>
 
                     <div class="col-span-6">
                         <label
-                            for="email_address"
+                            for="email"
                             class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
                         <input
                             type="email"
-                            id="email_address"
+                            id="email"
+                            name="email"
                             class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     </div>
                     <div class="col-span-6">
@@ -145,6 +269,7 @@
                             class="block text-sm font-medium leading-5 text-gray-700">Contact Number</label>
                         <input
                             id="contact_number"
+                            name="contact_number"
                             class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     </div>
                 </div>
