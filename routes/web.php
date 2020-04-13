@@ -22,9 +22,13 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 
-	Route::get('/settings', function () {
-		return view('settings/index');
-	})->name('setting');
+	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
+		Route::get('/', 'SettingsController@edit')->name('index');
+		Route::post('/general', 'SettingsController@updateGeneralSettings')->name('update.general');
+		Route::post('/security', 'SettingsController@updateSecuritySettings')->name('update.security');
+		Route::post('/billing', 'SettingsController@updateBillingSettings')->name('update.billing');
+	});
+
 
 	// Route::get('/settings/profile', 'ProfileController@edit')->name('profile.edit');
 	// Route::put('/settings/profile', 'ProfileController@update')->name('profile.update');

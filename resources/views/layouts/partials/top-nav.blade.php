@@ -61,7 +61,7 @@
                             Your Profile
                         </a>
                         <a
-                            href="{{ route('setting') }}"
+                            href="{{ route('settings.index') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150">Settings
                         </a>
                         <a

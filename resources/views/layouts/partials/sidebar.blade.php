@@ -103,7 +103,7 @@
                 </a>
 
                 <a
-                    href="{{ route('setting') }}"
+                    href="{{ route('settings.index') }}"
                     class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-900 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150
                     {{ request()->route()->getName() === 'setting' ? 'bg-gray-100' : '' }}">
                     <svg

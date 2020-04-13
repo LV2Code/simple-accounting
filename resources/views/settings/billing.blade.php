@@ -1,4 +1,6 @@
 <form
+    method="POST"
+    action="{{ route('settings.update.billing') }}"
     x-transition:enter-start="-translate-x-full"
     x-transition:enter-end="translate-x-0"
     x-transition:leave-start="translate-x-0"
