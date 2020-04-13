@@ -10146,6 +10146,10 @@ video {
   box-shadow: none;
 }
 
+.shadow-error {
+  box-shadow: 0 0 0 3px #feb2b2;
+}
+
 .hover\:shadow-xs:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -10186,6 +10190,10 @@ video {
   box-shadow: none;
 }
 
+.hover\:shadow-error:hover {
+  box-shadow: 0 0 0 3px #feb2b2;
+}
+
 .focus\:shadow-xs:focus {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
@@ -10224,6 +10232,10 @@ video {
 
 .focus\:shadow-none:focus {
   box-shadow: none;
+}
+
+.focus\:shadow-error:focus {
+  box-shadow: 0 0 0 3px #feb2b2;
 }
 
 .fill-current {
@@ -23489,6 +23501,10 @@ video {
     box-shadow: none;
   }
 
+  .sm\:shadow-error {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .sm\:hover\:shadow-xs:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -23529,6 +23545,10 @@ video {
     box-shadow: none;
   }
 
+  .sm\:hover\:shadow-error:hover {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .sm\:focus\:shadow-xs:focus {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -23567,6 +23587,10 @@ video {
 
   .sm\:focus\:shadow-none:focus {
     box-shadow: none;
+  }
+
+  .sm\:focus\:shadow-error:focus {
+    box-shadow: 0 0 0 3px #feb2b2;
   }
 
   .sm\:fill-current {
@@ -36814,6 +36838,10 @@ video {
     box-shadow: none;
   }
 
+  .md\:shadow-error {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .md\:hover\:shadow-xs:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -36854,6 +36882,10 @@ video {
     box-shadow: none;
   }
 
+  .md\:hover\:shadow-error:hover {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .md\:focus\:shadow-xs:focus {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -36892,6 +36924,10 @@ video {
 
   .md\:focus\:shadow-none:focus {
     box-shadow: none;
+  }
+
+  .md\:focus\:shadow-error:focus {
+    box-shadow: 0 0 0 3px #feb2b2;
   }
 
   .md\:fill-current {
@@ -50139,6 +50175,10 @@ video {
     box-shadow: none;
   }
 
+  .lg\:shadow-error {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .lg\:hover\:shadow-xs:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -50179,6 +50219,10 @@ video {
     box-shadow: none;
   }
 
+  .lg\:hover\:shadow-error:hover {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .lg\:focus\:shadow-xs:focus {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -50217,6 +50261,10 @@ video {
 
   .lg\:focus\:shadow-none:focus {
     box-shadow: none;
+  }
+
+  .lg\:focus\:shadow-error:focus {
+    box-shadow: 0 0 0 3px #feb2b2;
   }
 
   .lg\:fill-current {
@@ -63464,6 +63512,10 @@ video {
     box-shadow: none;
   }
 
+  .xl\:shadow-error {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .xl\:hover\:shadow-xs:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -63504,6 +63556,10 @@ video {
     box-shadow: none;
   }
 
+  .xl\:hover\:shadow-error:hover {
+    box-shadow: 0 0 0 3px #feb2b2;
+  }
+
   .xl\:focus\:shadow-xs:focus {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
@@ -63542,6 +63598,10 @@ video {
 
   .xl\:focus\:shadow-none:focus {
     box-shadow: none;
+  }
+
+  .xl\:focus\:shadow-error:focus {
+    box-shadow: 0 0 0 3px #feb2b2;
   }
 
   .xl\:fill-current {
