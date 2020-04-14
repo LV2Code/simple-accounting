@@ -20,6 +20,7 @@
 {{-- bg-gray-100 h-screen antialiased leading-none --}}
 <body class="bg-gray-100 h-screen antialiased leading-none">
     <div id="app">
+
         <div
             class="h-screen flex overflow-hidden bg-gray-100"
             x-data="{ sidebarOpen: false }"
@@ -36,9 +37,14 @@
                     class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none bg-gray-200">
 
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                        @yield('content')
-                    </div>
 
+                        @if(session('success'))
+                            <x-notification :message="session('success')"></x-notification>
+                        @endif
+
+                        @yield('content')
+
+                    </div>
                 </main>
             </div>
         </div>
