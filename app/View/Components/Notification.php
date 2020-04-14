@@ -16,7 +16,7 @@ class Notification extends Component
     public $title;
     public $message;
 
-    public function __construct($type, $title, $message)
+    public function __construct($type="success", $title="", $message)
     {
         $this->type = $type;
         $this->title = $title;
