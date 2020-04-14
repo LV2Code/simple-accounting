@@ -19,34 +19,95 @@
             </div>
         </div>
 
+
         <div class="md:w-2/3 w-full">
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6">
                         <label
-                            for="street_address"
+                            for="current_password"
                             class="block text-sm font-medium leading-5 text-gray-700">Current Password</label>
-                        <input
-                            id="street_address"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                type="password"
+                                id="current_password"
+                                name="current_password"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('current_password')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}" />
+
+                            @error('current_password')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        class="h-5 w-5 text-red-500">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('current_password')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('current_password') }}</p>
+                        @enderror
                     </div>
 
                     <div class="col-span-6">
                         <label
-                            for="street_address"
+                            for="password"
                             class="block text-sm font-medium leading-5 text-gray-700">New Password</label>
-                        <input
-                            id="street_address"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    {{ $errors->has('password')
+                                        ? ' focus:shadow-outline-red border-red-300 text-red-900 placeholder-red-300 focus:border-red-300  focus:shadow-error red'
+                                        : 'focus:shadow-outline-blue focus:border-blue-300 ' }}" />
+
+                            @error('password')
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        class="h-5 w-5 text-red-500">
+                                        <path
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"  />
+                                    </svg>
+                                </div>
+                            @enderror
+                        </div>
+                        @error('password')
+                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('password') }}</p>
+                        @enderror
+
                     </div>
 
                     <div class="col-span-6">
                         <label
-                            for="street_address"
+                            for="password_confirmation"
                             class="block text-sm font-medium leading-5 text-gray-700">Confirm New Password</label>
-                        <input
-                            id="street_address"
-                            class="mt-1 form-input block w-full py-2 px-3 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-indigo-500 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input
+                                type="password"
+                                id="password_confirmation"
+                                name="password_confirmation"
+                                class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none
+                                    transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                    focus:shadow-outline-blue focus:border-blue-300" />
+                        </div>
                     </div>
                 </div>
             </div>
