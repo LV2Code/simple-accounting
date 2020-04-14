@@ -5,43 +5,33 @@ namespace App\Http\Controllers;
 use App\Setting;
 use Illuminate\Http\Request;
 use App\Http\Requests\GeneralSettingsRequest;
+use App\Http\Requests\SecuritySettingsRequest;
 
 class SettingsController extends Controller
 {
     public function edit()
     {
-        return view('settings.index');
+        return view('settings.index', ['settings' => Setting::transformed()]);
     }
 
     public function updateGeneralSettings(GeneralSettingsRequest $request)
     {
         Setting::all()->each(function ($setting) use ($request) {
-
-            if($setting->name === 'company_address') {
-
-                $company_address =  [
-                    'city' => $request->city,
-                    'state' => $request->state,
-                    'street' => $request->street,
-                    'country' => $request->country,
-                    'zip_code' => $request->zip_code,
-                ];
-
-                $request->merge(['company_address' => json_encode($company_address)]);
-            }
-
-
             $setting->update(['value' => $request[$setting->name]]);
         });
 
-        // print_r($request->all());
-        // print_r(Setting::all()->toArray());
+        return redirect()->to(url()->previous() . '#general')
+            ->with('success', 'General settings updated successfully!');
     }
 
-    public function updateSecuritySettings(Request $request)
+    public function updateSecuritySettings(SecuritySettingsRequest $request)
     {
-    	// echo "<pre>";
-    	// print_r($request->all());
+        $user = auth()->user();
+        $user->password = \Hash::make($request->password);
+        $user->save();
+
+        return redirect()->to(url()->previous() . '#security')
+            ->with('success', 'Security settings updated successfully!');
     }
 
     public function updateBillingSettings(Request $request)
